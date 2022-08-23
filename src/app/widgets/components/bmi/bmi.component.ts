@@ -7,11 +7,19 @@ import { Component } from '@angular/core';
 })
 export class BmiComponent {
   bmi = 0;
+  height = 0;
+  mass = 0;
+
+  setHeight(height:string) {
+    this.height = parseInt(height);
+  }
+
+  setMass(mass:string) {
+    this.mass = parseInt(mass);
+  }
 
   calcBMI() {
-    let mass:any = (<HTMLInputElement>document.getElementById('mass')).value;
-    let height:any = (<HTMLInputElement>document.getElementById('height')).value;
-    this.bmi = mass / (height * height) * 10000;
+    this.bmi = this.mass / (this.height * this.height) * 10000;
   }
   
 }

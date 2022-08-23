@@ -1,10 +1,10 @@
 <span style="font-style: italic;">In BMI Calculator</span>
 <br>
 <span>weight in kg :</span>
-<input id="mass" placeholder="mass" type="number"/>
+<input #mass type="number" (input)="setMass(mass.value)"/>
 <br>
 <span>height in cm :</span>
-<input id="height" placeholder="height" type="number"/>
+<input #height type="number" (input)="setHeight(height.value)"/>
 <br>
 <button (click)="calcBMI()">Calculate</button>
 <br>
