@@ -1,11 +1,21 @@
 <span style="font-style: italic;">In BMI Calculator</span>
-<br>
+<br/>
+<br/>
 <span>weight in kg :</span>
-<input #mass type="number" (input)="setMass(mass.value)"/>
-<br>
+<!-- <input #massBox type="number" (input)="setMass(massBox.value)" [value]="mass"/>  -->
+<!--- (input) : event binding , [value] : property binding--->
+<input type="number" [(ngModel)]="mass">
+<br/>
+<br/>
 <span>height in cm :</span>
-<input #height type="number" (input)="setHeight(height.value)"/>
-<br>
+<!-- <input #heightBox type="number" (input)="setHeight(heightBox.value)" [value]="height"/> -->
+<input type="number" [(ngModel)]="height">
+<br/>
+<br/>
 <button (click)="calcBMI()">Calculate</button>
-<br>
+<br/>
+<br/>
+<button (click)="clear()">Clear</button>
+<br/>
+<br/>
 <span>{{bmi}}</span>
