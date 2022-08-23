@@ -1,11 +1,11 @@
 <span style="font-style: italic;">In BMI Calculator</span>
 <br>
 <span>weight in kg :</span>
-<input [(ngModel)]="mass" placeholder="mass" type="number"/>
+<input id="mass" placeholder="mass" type="number"/>
 <br>
 <span>height in cm :</span>
-<input [(ngModel)]="height" placeholder="height" type="number"/>
+<input id="height" placeholder="height" type="number"/>
 <br>
 <button (click)="calcBMI()">Calculate</button>
 <br>
-<span [(ngModel)]="bmi">{{bmi}}</span>
+<span>{{bmi}}</span>
