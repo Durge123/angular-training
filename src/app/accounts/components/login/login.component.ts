@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,20 +8,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  username:string = '';
-  password:string = '';
+  // username:string = '';
+  // password:string = '';
 
-  constructor() { }
+  // constructor() { }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
+  // }
+
+  // login() {
+  //   console.log(this.username + " " + this.password);
+  // }
+
+  // clear() {
+  //   this.username = '';
+  //   this.password = '';
+  // }
+  registerForm:any = FormGroup;
+submitted = false;
+constructor( private formBuilder: FormBuilder){}
+//Add user form actions
+get f() { return this.registerForm.controls; }
+onSubmit() {
+  
+  this.submitted = true;
+  // stop here if form is invalid
+  if (this.registerForm.invalid) {
+      return;
   }
-
-  login() {
-    console.log(this.username + " " + this.password);
+  //True if all the fields are filled
+  if(this.submitted)
+  {
+    alert("Great!!");
   }
-
-  clear() {
-    this.username = '';
-    this.password = '';
+ 
+}
+  ngOnInit() {
+    //Add User form validations
+    this.registerForm = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]]
+    });
   }
 }

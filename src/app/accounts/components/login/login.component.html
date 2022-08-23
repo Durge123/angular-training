@@ -1,4 +1,4 @@
-<span>Enter Username : </span>
+<!-- <span>Enter Username : </span>
 <input type="text" [(ngModel)]="username">
 <br/>
 <br/>
@@ -9,4 +9,29 @@
 <button (click)="login()">Login</button>
 <br/>
 <br/>
-<button (click)="clear()">Clear</button>
+<button (click)="clear()">Clear</button> -->
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Email address  : </label>
+      <input type="email" placeholder="name@example.com" formControlName="email">
+      <div *ngIf="submitted && f.email.errors">
+        <div *ngIf="f.email.errors.required" style="color: red;">email is required</div>
+        <div *ngIf="f.email.errors.email" style="color: blue;">email must be a valid email address</div>
+     </div>
+    </div>
+    <br/>
+    <br/>
+    <div>
+      <label>Password  : </label>
+      <input type="password" placeholder="Password" formControlName="password">
+      <div *ngIf="submitted && f.password.errors">
+        <div *ngIf="f.password.errors.required" style="color: red;">password is required</div>
+     </div>
+    </div>
+    <br/>
+    <br/>
+    <div >
+      <button type="submit">Sign in</button>
+    </div>
+
+  </form>
