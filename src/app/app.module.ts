@@ -5,6 +5,7 @@ import { AccountsModule } from './accounts/accounts.module';
 import { AppComponent } from './app.component';
 import { BmiCalculationContainerModule } from './bmi-calculation-container/bmi-calculation-container.module';
 import { OutputComponent } from './output/output.component';
+import { ConsoleLoggerService } from './services/consoleLogger.service';
 import { WidgetsModule } from './widgets/widgets.module';
 
 @NgModule({
@@ -18,7 +19,9 @@ import { WidgetsModule } from './widgets/widgets.module';
     AccountsModule,
     BmiCalculationContainerModule
   ],
-  providers: [],
+  providers: [
+    {useClass: ConsoleLoggerService, provide: ConsoleLoggerService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
