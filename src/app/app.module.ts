@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AccountsModule } from './accounts/accounts.module';
 
 import { AppComponent } from './app.component';
+import { BmiCalculationContainerModule } from './bmi-calculation-container/bmi-calculation-container.module';
 import { OutputComponent } from './output/output.component';
 import { WidgetsModule } from './widgets/widgets.module';
 
@@ -14,7 +15,8 @@ import { WidgetsModule } from './widgets/widgets.module';
   imports: [
     BrowserModule,
     WidgetsModule,
-    AccountsModule
+    AccountsModule,
+    BmiCalculationContainerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
