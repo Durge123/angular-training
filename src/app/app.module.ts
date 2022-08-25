@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AccountsModule } from './accounts/accounts.module';
@@ -17,10 +18,11 @@ import { WidgetsModule } from './widgets/widgets.module';
     BrowserModule,
     WidgetsModule,
     AccountsModule,
-    BmiCalculationContainerModule
+    BmiCalculationContainerModule,
+    HttpClientModule
   ],
   providers: [
-    {useClass: ConsoleLoggerService, provide: ConsoleLoggerService}
+    {useClass: ConsoleLoggerService, provide: "logger"}
   ],
   bootstrap: [AppComponent]
 })

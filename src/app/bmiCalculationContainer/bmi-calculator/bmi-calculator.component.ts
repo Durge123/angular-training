@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { BmiCalculationContainerComponent } from 'src/app/bmi-calculation-container/bmi-calculation-container.component';
 import { BmiItemModel } from 'src/app/models/bmiitem.model';
 
 @Component({
@@ -8,7 +9,11 @@ import { BmiItemModel } from 'src/app/models/bmiitem.model';
 })
 export class BmiCalculatorComponent implements OnInit {
 
-  constructor() { }
+  bmiContainer: BmiCalculationContainerComponent
+
+  constructor(@Inject("bmi-container") _bmiContainer:BmiCalculationContainerComponent) { 
+    this.bmiContainer = _bmiContainer;
+   }
 
   ngOnInit(): void {
   }
@@ -19,6 +24,9 @@ export class BmiCalculatorComponent implements OnInit {
   @Output()
   resultCalculated = new EventEmitter<BmiItemModel>();
 
+  @Input()
+  bmiResult: number = 0;
+
   setHeight(height:string) {
     this.height = parseInt(height);
   }
@@ -28,7 +36,7 @@ export class BmiCalculatorComponent implements OnInit {
   }
 
   calcBMI() {
-    this.result = this.mass / (this.height * this.height) * 10000;
+    //this.bmiContainer.bmiCalculatedData(this.height, this.mass);
     this.resultCalculated.emit(
       new BmiItemModel(this.height, this.mass, this.result)
     );
@@ -38,6 +46,7 @@ export class BmiCalculatorComponent implements OnInit {
     this.result = 0;
     this.mass = 0;
     this.height = 0;
+    this.bmiResult = 0;
   }
 
 }
